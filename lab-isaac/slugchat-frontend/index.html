@@ -6,6 +6,18 @@
   </head>
   <body>
     <h1>Click to sign-in</h1>
-    <a href="https://accounts.google.com/o/oauth2/v2/auth?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive.metadata.readonly&include_granted_scopes=true&redirect_uri=http://localhost:3000/oauth/google/code&response_type=token&client_id=231443345469-qrjfe6urk5r7uvqs75q5jdat5lseps4p.apps.googleusercontent.com">Sign Up</a>
+    <script type='text/javascript'>
+     let a = document.createElement('a')
+     let AUTH_URL='https://accounts.google.com/o/oauth2/v2/auth'
+     let clientIDQuery='client_id=231443345469-qrjfe6urk5r7uvqs75q5jdat5lseps4p.apps.googleusercontent.com'
+     let responseTypeQuery='response_type=code'
+     let scopeQuery = 'scope=openid%20profile%20email'
+     let promptQuery = 'prompt=consent'
+     let redirectURIQuery = 'redirect_uri=http://localhost:3000/oauth/google/code'
+     let formatedAuthURL = `${AUTH_URL}?${clientIDQuery}&${responseTypeQuery}&${scopeQuery}&${promptQuery}&${redirectURIQuery}`
+     a.setAttribute('href',  formatedAuthURL)
+     a.textContent = 'Sign Up'
+     document.body.appendChild(a)
+   </script>
   </body>
 </html>
